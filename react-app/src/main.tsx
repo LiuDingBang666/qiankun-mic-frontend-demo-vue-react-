@@ -44,6 +44,16 @@ renderWithQiankun({
         return Promise.resolve() },
     mount(props) {
         console.log('app-react mount', props)
+        props.onGlobalStateChange((state, prev) => {
+            console.log('app-react onGlobalStateChange', state, prev)
+            // state: 变更后的状态; prev 变更前的状态
+            console.log(state, prev);
+        });
+        setInterval(() => {
+            props.setGlobalState({
+                reactCount: Math.random(),
+            });
+        }, 1000)
         render(props) },
     unmount(_props) {
         console.log('app-react unmount')

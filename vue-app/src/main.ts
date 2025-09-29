@@ -26,6 +26,16 @@ renderWithQiankun({
         return Promise.resolve() },
     mount(props) {
         console.log('[vue] vue app mounted',  props)
+        props.onGlobalStateChange((state, prev) => {
+            console.log('[vue] vue app state updated',  state, prev)
+            // state: 变更后的状态; prev 变更前的状态
+            console.log(state, prev);
+        });
+        setInterval(() => {
+            props.setGlobalState({
+                vueCount: Math.random(),
+            });
+        }, 1000)
         render(props) },
     unmount(props) {
         console.log('[vue] vue app unmounted',  props)
