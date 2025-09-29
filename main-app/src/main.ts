@@ -1,7 +1,7 @@
 import { registerMicroApps, start } from 'qiankun';
 import { createApp } from 'vue'
 import App from "./App.vue";
-import {createRouter, createWebHistory} from 'vue-router'
+import {createRouter, createWebHistory, useRouter} from 'vue-router'
 console.log('start')
 registerMicroApps([
     {
@@ -28,6 +28,14 @@ const router = createRouter(
     }
 )
 
+router.beforeEach((to, from, next) => {
+    console.log('from', from)
+    console.log('to', to)
+    next()
+})
+
 createApp(App)
     .use(router)
     .mount('#mic-app')
+
+

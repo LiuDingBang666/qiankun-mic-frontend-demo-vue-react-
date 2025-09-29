@@ -21,11 +21,18 @@ if (!qiankunWindow.__POWERED_BY_QIANKUN__) {
 }
 
 renderWithQiankun({
-    bootstrap() { return Promise.resolve() },
-    mount(props) { render(props) },
-    unmount(_props) {
+    bootstrap() {
+        console.log('[vue] vue app bootstraped')
+        return Promise.resolve() },
+    mount(props) {
+        console.log('[vue] vue app mounted',  props)
+        render(props) },
+    unmount(props) {
+        console.log('[vue] vue app unmounted',  props)
         app?.unmount()
         app = null
     },
-    update(props) { render(props) }
+    update(props) {
+        console.log('[vue] vue app updated',  props)
+        render(props) }
 })

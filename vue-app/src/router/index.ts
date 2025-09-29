@@ -33,6 +33,14 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+    console.log('to',  to)
+    if (to.query.token) {
+        console.log('token', to.query.token)
+    }
+    next()
+})
+
 router.afterEach((to) => {
   if (to.meta?.title) {
     document.title = String(to.meta.title)
