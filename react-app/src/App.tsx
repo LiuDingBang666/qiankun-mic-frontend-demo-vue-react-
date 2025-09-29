@@ -1,4 +1,4 @@
-import { NavLink, useSearchParams } from 'react-router-dom'
+import {NavLink, Outlet, Route, Routes, useSearchParams} from 'react-router-dom'
 import './App.css'
 
 function App() {
@@ -12,6 +12,10 @@ function App() {
         </NavLink>
         <NavLink to="/about">About</NavLink>
       </nav>
+        <div className="main">
+        {/* 子路由显示*/}
+            <Outlet />
+        </div>
     </>
   )
 }

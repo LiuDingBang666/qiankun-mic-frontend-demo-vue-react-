@@ -19,9 +19,13 @@ function render(props: any = {}) {
         <StrictMode>
             <BrowserRouter basename={'/app-react'}>
                     <Routes>
-                        <Route path="/" element={<App />}/>
-                        <Route path="/home" element={<Home />} />
-                        <Route path="/about" element={<About />} />
+                        <Route path="/" element={<App />} children={
+                            <>
+                                <Route index={true}  element={<Home />} />
+                                <Route path="/home" element={<Home />} />
+                                <Route path="/about" element={<About />} />
+                            </>
+                        }/>
                         <Route path="*" element={<NotFound />} />
                     </Routes>
             </BrowserRouter>

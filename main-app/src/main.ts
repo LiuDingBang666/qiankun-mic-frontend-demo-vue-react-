@@ -1,7 +1,7 @@
 import { registerMicroApps, start } from 'qiankun';
 import { createApp } from 'vue'
 import App from "./App.vue";
-import {createRouter, createWebHistory, useRouter} from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 console.log('start')
 registerMicroApps([
     {
